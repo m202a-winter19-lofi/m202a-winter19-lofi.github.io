@@ -5,6 +5,16 @@ title: Home
 
 {% include intro.html %}
 
+<section class="page-list">
+  <div class="container">
+    {% for page in site.pages %}
+      
+      <article class="page-item">
+        <div class="article-title"><a class="page-link" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></div>
+      </article>
+    {% endfor %}
+  </div>
+
 <section class="post-list">
   <div class="container">
     {% for post in site.posts %}
