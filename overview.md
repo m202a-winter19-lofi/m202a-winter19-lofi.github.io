@@ -2,19 +2,21 @@
 layout: page
 title: "Overview"
 ---
-# Welcome!
-Below is a quick overview of some essentials of the project. To begin the report proper, start by checking out the <li><a href="{{ '/abstract' | prepend: site.baseurl | prepend: site.url }}">abstract</a></li>.
+Welcome! Below is a quick overview of some essentials of the project. To begin the report proper, start by checking out the <a href="{{ '/abstract' | prepend: site.baseurl | prepend: site.url }}">abstract</a>.
 
 
 # Download
 
 ## Source code
 
-Android Studio project file 
-"VAT" dataset of songs embedded with valence, arousal, tempo 
-Dataset creation Jupyter notebook 
-CNN training and exporting Jupyter notebook 
-App APK
+* Android Studio project file 
+* "VAT" dataset of songs embedded with valence, arousal, tempo 
+* Dataset creation Jupyter notebook 
+* CNN training and exporting Jupyter notebook 
+* App APK
+
+
+
 
 # Timeline 
 
@@ -64,6 +66,9 @@ App APK
 
 ## Week 10
 * ?
+
+
+
 
 # About the authors
 
