@@ -1,13 +1,10 @@
 ---
-layout: default
-title: Home
+layout: page
+title: "Overview"
 ---
-<!-- layout used to be 'default' -->
-{% include intro.html %}
+# Welcome!
+Below is a quick overview of some essentials of the project. To begin the report proper, start by checking out the <li><a href="{{ '/abstract' | prepend: site.baseurl | prepend: site.url }}">abstract</a></li>.
 
-Please start learning about this project by first checking the <li><a href="{{ '/overview' | prepend: site.baseurl | prepend: site.url }}">overview</a></li>. Thank you!
-
-<!--
 
 # Download
 
@@ -81,43 +78,3 @@ Eats dried lemons
 # What does LOFI mean? 
 
 Glad you asked...
-
--->
-
-
-<!--
-<section class="page-list">
-  <div class="container">
-    {% for page in site.pages %}
-      
-      <article class="page-item">
-        <div class="article-title"><a class="page-link" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a></div>
-      </article>
-    {% endfor %}
-  </div>
-</section>
--->
-
-<!--
-<section class="post-list">
-  <div class="container">
-    {% for post in site.posts %}
-      {% unless post.next %}
-        <h2 class="category-title">{{ post.date | date: '%Y' }}</h2>
-      {% else %}
-        {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-        {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-        {% if year != nyear %}
-          <h2 class="category-title">{{ post.date | date: '%Y' }}</h2>
-        {% endif %}
-      {% endunless %}
-      <article class="post-item">
-        <span class="post-meta date-label">{{ post.date | date: "%b %d" }}</span>
-        <div class="article-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></div>
-      </article>
-    {% endfor %}
-  </div>
-  </section>
-  -->
-
-
