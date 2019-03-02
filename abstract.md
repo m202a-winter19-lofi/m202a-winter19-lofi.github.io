@@ -3,5 +3,4 @@ layout: page
 title: "Abstract"
 ---
 
-# Abstract 
 Wearables and smartphones are becoming increasingly ubiquitous in daily life, as is the processing and data-collecting capabilities that come with them. Recommendation systems for music are also widespread but tend to be restricted to techniques that are based on collaborative-filtering or the content itself. By leveraging the data-collecting capabilities of wearables and smartphones, which together can provide insight to a user’s mood and activity, mood-and-activity-based music recommendation systems can be created to provide users a rich, immersive experience tailored to their dynamic, daily lives and the user’s very physiology. The system we propose is comprised of a wrist-mounted Hexiwear from which we can measure user heart rate variability (an indicator of mood and stress) and an accelerometer found in any modern smartphone (for activity recognition), whose data taken together can be used to recommend music from a music database consisting of songs embedded with their respective moods and tempos. 
