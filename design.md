@@ -5,7 +5,7 @@ title: "Design"
 
 # Overview
 
-![LOFI diagram](/assets/images/lofi-diag.png)
+![LOFI diagram]("https://m202a-winter19-lofi.github.io/assets/images/lofi-diag.png")
 
 LOFI takes user inputs such as their mood, estimated using their heart rate variability, and their activity, estimated using a convolutional neural network, along with user preferences for certain music and recommends songs accordingly. The recommender algorithm implements an intuitive K-nearest neighbors algorithm to find songs "closest" to the user's mood and activity in the latent valence-arousal-tempo space detailed below, returning the top K recommendations to the user by running the algorithm on a compact song metadata database on an app. In total, the system makes up a closed feedback loop where song recommendations that change a user's mood can in turn change future recommendations.
 
