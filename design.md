@@ -4,7 +4,7 @@ title: "Design"
 ---
 
 
-![LOFI](/assets/images/lofi_diag.png)
+![LOFI](/assets/images/lofi_diag_new.png)
 
 LOFI takes user inputs such as their mood, estimated using their heart rate variability, and their activity, estimated using a convolutional neural network, and recommends songs accordingly. The recommender algorithm implements an intuitive K-nearest neighbors algorithm to find songs "closest" to the user's mood and activity in the latent valence-arousal-tempo space detailed below, returning the top K recommendations to the user by running the algorithm on a compact song metadata database on an app. In total, the system makes up a closed feedback loop where song recommendations that change a user's mood can in turn change future recommendations.
 
@@ -25,7 +25,7 @@ This representation of emotion is desirable for our application since it is easy
 By using a variety of techniques such as lyric semantic analysis, MFCC analysis (Mel frequency cepstral coefficients: what instruments and timbres were present) and crowdsourced tag analysis 
 (mapping valence and arousal values to user tags of songs like "danceable" or "chill"), VA values for each song were algorithmically generated and standardized across the dataset.</p>
 
-![Deezer dataset excerpt](/assets/images/deezer_dataset.png)
+![Deezer dataset excerpt](/assets/images/deezer_dataset.PNG)
 
 
 
