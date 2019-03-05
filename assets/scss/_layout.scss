@@ -263,6 +263,11 @@ hr {
   margin-top: $base-spacing * 2;
 }
 
+.centered-image {
+  align-items:center;
+  justify-content:center;
+}
+
 // This applies from 0px to 600px
 @media (max-width: 600px) {
   .date-label {
@@ -291,4 +296,6 @@ hr {
       color: $blue-color;
     }
   }
+  
+
 }

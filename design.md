@@ -77,12 +77,13 @@ The activities that the dataset consists of are:
 <p>The dataset was relatively evenly distributed across users (a good variety of different gaits and movement patterns across body types was acquired)
 and most of the activity samples were of either walking or jogging.</p>
 
-![samples over users](/assets/images/dist_over_users.PNG)
+![samples over users](/assets/images/cnn_dist_users.PNG)
 
-![samples over activities](/assets/images/dist_over_activities.PNG)
+![samples over activities](/assets/images/cnn_dist_activities.PNG)
 
 <p>All of the data was sampled at 20 Hz. We normalized the acceleration values *x* during preprocessing across all samples according to equation (2).</p>
 
+<div class =".centered-image"><img src="/assets/images/eq2.PNG"></div>
 ![normalization](/assets/images/eq2.PNG)
 
 <p>Here, *x* tilde is the normalized data, *µ* is the expected value of *x*, and *σ* is the standard deviation of *x*.</p>
@@ -113,7 +114,7 @@ based on which axis feels gravity and walking up/downstairs have distinct "humps
 
 <p>The CNN architecture used is based off [7].</p>
 
-![CNN architecture](/assets/images/cnn_architecture.PNG)
+![CNN architecture](/assets/images/cnn_architecture.png)
 
 # Song recommendation
 
