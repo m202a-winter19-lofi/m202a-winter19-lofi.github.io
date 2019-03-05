@@ -10,7 +10,7 @@ LOFI takes user inputs such as their mood, estimated using their heart rate vari
 
 
 
-# *Mood estimation*
+# **Mood estimation**
 
 ### Representing mood in 2 dimensions: the valence-arousal space
 <p>One of the first questions that naturally surfaced when thinking up this project was, "How can you possibly quantify something like mood?"</p>
@@ -29,18 +29,22 @@ By using a variety of techniques such as lyric semantic analysis, MFCC analysis 
 
 ![Deezer dataset excerpt](/assets/images/deezer_dataset.PNG)
 
+<p align="center"><img src="/assets/images/deezer_va.PNG"></p>
 
+<p>By dividing the valence-arousal space into 4 quadrants as per the paper on MoodyLyrics by Çano and Morisio [4], the distribution of the Deezer dataset's distinction 
+between 4 key "bins" of mood can be distinguished. Each data point plotted represents the valence and arousal value of a given song. Happy (yellow) songs are positive and high energy. 
+Relaxed (green) songs are positive and low energy. Their respective complements are: sad (blue) songs that are negative with low energy, and angry (red) songs that are negative with high energy.</p>
 
 ### Heart rate variability (HRV) and the VA space
 
-<p>In 2009, Stickel et. al wrote about how they mapped readings of heart rate variability to the VA space [4]. ... 
+<p>In 2009, Stickel et. al wrote about how they mapped readings of heart rate variability to the VA space [5]. ... 
 Using this method, measurements of heart rate variability can then be mapped to the VA space. By using a Hexiwear to measure heart rate, 
 measurements can be sent over BLE to a bridge device (in this case, an Android smartphone) to make measurements in change of heart rate 
 variability over time. </p>
 
 
 
-# *Activity recognition*
+# **Activity recognition**
 
 ### Goals of activity recognition
 
@@ -50,8 +54,16 @@ Indeed, music recommended to the user depends on which of these two states they 
 selecting song recommendations. But in a jogging state, where running to a song with a matching tempo makes more of an impact on the user's experience, song tempos are 
 weighed more heavily.</p>
 
+<p>To build on the aforementioned Deezer dataset with this in mind, we used the Million Songs dataset (MSD) [6] to lift the VA representation of songs to the 3rd dimension: tempo. 
+Since the Deezer dataset was made from songs in the MSD, one of the dataset's fields was the MSD track ID. Using this field, songs in the Deezer set could be looked up in the MSD, where 
+those songs have a variety of high-level feature information, one of such features being tempo. By appending this new column to the Deezer dataset, we can arrive at a 3D visualization of what 
+we can now call VAT space (valence, arousal, tempo).</p>
+
+<p align="center"><img src="/assets/images/deezer_vat.PNG"></p>
+
 <p>If time allows, and/or in future iterations of the project, more kinds of activities can be detected and songs can be suggested based on various other kinds of activities.
-The way is open for the project to be extended.</p>
+The way is open for the project to be extended. Other features can be extracted from the MSD to add further dimensions to this latent space, or we could implement our own 
+feature extraction algorithms to find features of interest.</p>
 
 ### Convolutional neural network (CNN) design and training
 
@@ -129,7 +141,7 @@ probability was the maximum among these was the activity the sample is to be cla
 <p>The "adam" optimizer was used since it has been found to often give strong empirical results and it utilizes both running means of momentum and 
 past gradient history. A batch size of 400 samples was used in training the network over 10 epochs.</p>
 
-# Song recommendation
+# **Song recommendation**
 
 ### K nearest neighbors for top recommendations 
 
