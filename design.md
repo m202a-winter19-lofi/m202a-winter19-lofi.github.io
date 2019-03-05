@@ -80,9 +80,9 @@ and most of the activity samples were of either walking or jogging.</p>
 
 ![samples over activities](/assets/images/cnn_dist_activities.PNG)
 
-<p>All of the data was sampled at 20 Hz. We normalized the acceleration values *x* during preprocessing across all samples according to equation (2).</p>
+<p>All of the data was sampled at 20 Hz. We normalized the acceleration values x during preprocessing across all samples according to equation (2).</p>
 
-<img align="center" src="/assets/images/eq2.PNG" alt="normalization equation">
+<p align="center"><img src="/assets/images/eq2.PNG" alt="normalization equation"></p>
 
 Here, *x* tilde is the normalized data, *µ* is the expected value of *x*, and *σ* is the standard deviation of *x*.
 
