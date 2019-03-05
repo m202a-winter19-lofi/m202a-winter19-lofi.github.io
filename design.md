@@ -65,14 +65,13 @@ as possible, a 1-dimensional CNN was chosen for the project.</p>
 <p>The dataset used to train the CNN was the Activity Prediction dataset from WISDM at Fordham University [5]. The dataset contains 
 samples of 3D accelerometer data of a smartphone in the front leg pocket of several subjects, which matches the conditions that the project 
 assumes most users would be in when using LOFI. 
-The activities that the dataset consists of are:
+The activities that the dataset consists of are:</p>
 * Sitting
 * Standing
 * Walking (on a flat surface)
 * Walking upstairs 
 * Walking downstairs 
 * Jogging 
-</p>
 
 <p>The dataset was relatively evenly distributed across users (a good variety of different gaits and movement patterns across body types was acquired)
 and most of the activity samples were of either walking or jogging.</p>
@@ -83,11 +82,9 @@ and most of the activity samples were of either walking or jogging.</p>
 
 <p>All of the data was sampled at 20 Hz. We normalized the acceleration values *x* during preprocessing across all samples according to equation (2).</p>
 
-<div class =".centered-image"><img src="/assets/images/eq2.PNG"></div>
 <img align="center" src="/assets/images/eq2.PNG" alt="normalization equation">
-![normalization](/assets/images/eq2.PNG)
 
-<p>Here, *x* tilde is the normalized data, *µ* is the expected value of *x*, and *σ* is the standard deviation of *x*.</p>
+Here, *x* tilde is the normalized data, *µ* is the expected value of *x*, and *σ* is the standard deviation of *x*.
 
 <p>Before normalization, an accelerometer reading 
 of magnitude 1 was equal to 1G, or 9.8 m/s squared. By optimizing over different window lengths and amounts 
