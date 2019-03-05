@@ -16,7 +16,9 @@ LOFI takes user inputs such as their mood, estimated using their heart rate vari
 <p>One of the first questions that naturally surfaced when thinking up this project was, "How can you possibly quantify something like mood?"</p>
 <p>In 1992, a paper was published that introduced a 2-dimensional, continuous representation of emotion in the Journal of Experimental Psychology [1].
 This came to be known as the valence-arousal model of emotion, where different regions of the space represent different types of emotions.</p>
-![VA space](/assets/images/va_space.png)
+
+<p align="center"><img src="/assets/images/va_space.png"></p>
+
 <p>Valence, the horizontal axis, represents the positivity or negativity of an emotion. Arousal, the vertical axis, represents the energy of an emotion. 
 For example, an emotion like happiness is characterized by high valence and high arousal, whereas anger is characterized by low valence and high arousal.
 This representation of emotion is desirable for our application since it is easy to visualize and to work with. </p>
@@ -78,7 +80,7 @@ and most of the activity samples were of either walking or jogging.</p>
 
 ![samples over users](/assets/images/cnn_dist_users.PNG)
 
-![samples over activities](/assets/images/cnn_dist_activities.PNG)
+<p align="center"><img src="/assets/images/cnn_dist_activities.PNG"></p>
 
 <p>All of the data was sampled at 20 Hz. We normalized the acceleration values x during preprocessing across all samples according to equation (2).</p>
 
@@ -92,7 +94,7 @@ of window overlap, we arrived at using a 3 second window with no overlap for tra
 Below are plots of a single window of different activities, preceded by a figure showing how the different smartphone acceleration axes were positioned relative to 
 subjects' bodies during data collection [6].</p>
 
-![sensor positioning](/assets/images/sensor_orientation.PNG)
+<p align="center"><img src="/assets/images/sensor_orientation.PNG"></p>
 
 ![jogging](/assets/images/jogging.PNG)
 
@@ -110,28 +112,61 @@ subjects' bodies during data collection [6].</p>
 Other activities have observable, distinct features to set them apart from other types of activities (e.g. standing can be distinguished from sitting 
 based on which axis feels gravity and walking up/downstairs have distinct "humps" in accelerometer readings).</p>
 
-<p>The CNN architecture used is based off [7].</p>
+<p>The CNN architecture used is based off [7] and was visualized using Netron [8].</p>
 
-![CNN architecture](/assets/images/cnn_architecture.png)
+<p align="center"><img src ="/assets/images/cnn_architecture.png" alt="architecture" height="650"></p>
+
+<p>The convolution layers include a rectified linear unit (ReLU) at their output as their non-linear activation function.
+This popular choice of activation function is fast to compute and empirically performs well. The convolution filter size used was 
+4, and the number of filters in the first pair of convolution layers was 100, and in the second pair there were 160 filters used. Consecutive convolution layers 
+allow for higher-level features in the sensor data to be discovered before being passed into the max pooling layer. These layers 
+reduce intermediate tensor size while retaining the most critical information, all without adding extra training parameters. The 
+dropout layer approximates bagging (bootstrap aggregating), a method of ensembling intended to improve generalization of the model. 
+A dropout rate of 0.5 was used (half of the neurons would be "on"). Lastly, the output of the dropout layer is fed to a fully 
+connected affine layer whose output is then fed to a softmax function to convert the scores into classification probabilities. The class (activity type) whose
+probability was the maximum among these was the activity the sample is to be classified as.</p>
+
+<p>The "adam" optimizer was used since it has been found to often give strong empirical results and it utilizes both running means of momentum and 
+past gradient history. A batch size of 400 samples was used in training the network over 10 epochs.</p>
 
 # Song recommendation
 
-## K nearest neighbors for top recommendations 
+### K nearest neighbors for top recommendations 
 
-x
+<p>To take advantage of the VA space representation of the song dataset and HRV, we exploit the fact that listening 
+to music with the same mood as a user is feeling has been shown to help the user feel better [9]. The top K songs are recommended to a user 
+based on the Euclidean distance (norm 2) between a user's estimated mood in VA space and the K songs with the least distance to that mood. 
+The K-nearest neighbors (KNN) algorithm is used to find these recommended songs.</p>
 
-## Bringing it together: recommending based on mood (VA) and activity (tempo)
 
-x
+
+
+
+### Bringing it together: recommending based on mood (VA) and activity (tempo)
+
+<p>However, the desired minimum distance is a function of the 
+user's activity - we want to recommend songs completely based on mood if a user is not active, but we want to factor in tempo if the user is active (and 
+include some valence/arousal biases to avoid playing sad music during a workout). So, the top K recommendations are ultimately found by solving the 
+following optimization problem for the smallest K distances:</p>
+
+<p align="center"><img src="/assets/images/modified_knn.PNG"></p>
+
+We wish to minimize the Euclidean distance of these quantities over all songs in the dataset *i* and return the K smallest distances and their respective songs.
+*v*, *a*, and *t* represent valence, arousal and tempo values, respectively. *α*, *β*, and *γ* are weights applied to their respective terms used for fine tuning 
+recommendations. The subscript *i* refers to the values of one of the songs in the dataset. 
+The subscript *x* refers to the values of a user's mood (a user's cadence when referring to tempo in *t* sub x). *θ* represents an indicator variable whose 
+value can either be 1 or 0; *θ* = 1 if the user is active (jogging), else *θ* = 0. The subscript *θ* in the last term of the equation are the biases applied to 
+the valence and arousal value regardless of user mood or song: if the user is jogging, we want to bias the valence and arousal of suggested songs such that 
+songs that are too sad or relaxed are not suggested (an active workout would benefit from a higher-energy, positive playlist). 
 
 
 
 # Implementation
 
-## Translating everything to an app implementation 
+### Translating everything to an app implementation 
 
 x
 
-## Optimization 
+### Optimization 
 
 x
