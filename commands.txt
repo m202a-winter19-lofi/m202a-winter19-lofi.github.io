@@ -1,0 +1,9 @@
+shift right click to get to powershell in directory
+
+(after you make changes)
+git add . (add all the files youve added to the list of things to update)
+git commit -m "what the update is" 
+git push
+
+(if you cant push you may need to pull first)
+git pull (download and merge the latest update first, before pushing YOUR updates)
