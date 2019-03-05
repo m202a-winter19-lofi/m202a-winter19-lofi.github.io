@@ -84,6 +84,7 @@ and most of the activity samples were of either walking or jogging.</p>
 <p>All of the data was sampled at 20 Hz. We normalized the acceleration values *x* during preprocessing across all samples according to equation (2).</p>
 
 <div class =".centered-image"><img src="/assets/images/eq2.PNG"></div>
+<img align="center" src="/assets/images/eq2.PNG" alt="normalization equation">
 ![normalization](/assets/images/eq2.PNG)
 
 <p>Here, *x* tilde is the normalized data, *µ* is the expected value of *x*, and *σ* is the standard deviation of *x*.</p>
