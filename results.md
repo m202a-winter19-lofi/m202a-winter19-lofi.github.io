@@ -27,6 +27,9 @@ Each of the 3 tests consisted of each activity for 1 minute while the phone was 
 Since 3-second windows are taken as input to the network, there are 20 samples each minute and therefore each activity has 20 trials per test. A phone 
 screen recording app [#] was used to record the classifications and review them.</p>
 
+<p>For all experiments for this project, users walking walk at 2.5 mph and users jogging jog at 6 mph. This is measured either by an app or by the user 
+moving on a treadmill whose speed can be set.</p>
+
 <p>From the summary of classification accuracy at the bottom, even when implemented on the smartphone the network performs well. The activities walking and jogging 
 have the highest classification accuracy as they are robust to different kinds of gaits and strides thanks to training over several test subjects. Interestingly, 
 standing, one of the stationary activities, has the worst classification accuracy. This is due to the classification of standing being rather sensitive: one has to stand 
@@ -36,7 +39,7 @@ feet re-positioning to make the network more robust.</p>
 
 <p align="center"><img src="/assets/images/results_real_life_activity_level.PNG"></p>
 
-<p>*The last table's 2nd column heading is meant to read average activity level classification **accuracy**.*</p>
+*The last table's 2nd column heading is meant to read "average activity level classification* **accuracy**".
 
 <p>The above experiment is meant to examine the network's performance in distinguishing between non-active activities (sitting, standing) and active activities (walking, jogging) 
 so that the app may distinguish between operation modes: if the user is non-active, recommend songs based on mood only; otherwise, recommend songs based on stride rate as well. 
@@ -54,7 +57,9 @@ activity is classified as active for at least 3 consecutive classifications.</p>
 
 # *Stride rate estimation*
 
-...
+<p>To conduct these tests, the smartphone was placed in the user's front leg pocket and in their free hand a website [#] was used to estimate tempo by tapping a button repeatedly. 
+As the user walked or jogged at a consistent stride rate, they tapped a button on the website at the same rate as their feet hitting the ground. The tempo estimated by the 
+website, which estimates tempo identically to the smartphone implementation of stride rate estimation, is considered the ground truth.</p>
 
 # *Mood estimation*
 
@@ -62,4 +67,4 @@ activity is classified as active for at least 3 consecutive classifications.</p>
 
 # *Song recommendation*
 
-... 
+<p>5 users ... </p>
