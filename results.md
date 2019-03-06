@@ -36,12 +36,16 @@ feet re-positioning to make the network more robust.</p>
 
 <p align="center"><img src="/assets/images/results_real_life_activity_level.PNG"></p>
 
+<p>*The last table's 2nd column heading is meant to read average activity level classification **accuracy**.*</p>
+
 <p>The above experiment is meant to examine the network's performance in distinguishing between non-active activities (sitting, standing) and active activities (walking, jogging) 
 so that the app may distinguish between operation modes: if the user is non-active, recommend songs based on mood only; otherwise, recommend songs based on stride rate as well. 
 Each test is made up of 1 minute of classifications, so as before, 20 classifications per test. However, each of the tests were conducted back-to-back in a continuous 3-minute 
 stretch. In the first minute (first test), at the 45 second mark the sitting user stood up and the walking user started to jog. 45 seconds later (30 seconds into test 2), 
 the standing user sat down and the jogging user started to walk. This was repeated again 45 seconds later. These tests then capture classification performance during 
-transition between activities as well. While the network was always able to correctly classify active activities, it had some trouble correctly classifying non-active 
+transition between activities as well. </p>
+
+<p>While the network was always able to correctly classify active activities, it had some trouble correctly classifying non-active 
 activities. Almost all of these inaccuracies (i.e. walking or jogging predicted when the user was sitting or standing) occurred during the transition period between sitting 
 and standing: this change in gravity acting on the phone is sometimes understood as walking or jogging before "settling into" the transitioned-into activity within the next 3
 classifications. While there is 
@@ -56,6 +60,6 @@ activity is classified as active for at least 3 consecutive classifications.</p>
 
 ...
 
-@ *Song recommendation*
+# *Song recommendation*
 
 ... 
