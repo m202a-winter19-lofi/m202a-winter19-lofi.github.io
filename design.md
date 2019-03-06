@@ -181,4 +181,4 @@ x
 
 ### Optimization 
 
-x
+<p>Because the majority of the computing takes place on the smartphone, 
