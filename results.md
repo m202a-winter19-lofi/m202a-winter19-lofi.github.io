@@ -39,7 +39,7 @@ feet re-positioning to make the network more robust.</p>
 
 <p align="center"><img src="/assets/images/results_real_life_activity_level.PNG"></p>
 
-*The last table's 2nd column heading is meant to read "average activity level classification* **accuracy**".
+*The last table's 2nd column heading is meant to read "average activity level classification **accuracy**"*.
 
 <p>The above experiment is meant to examine the network's performance in distinguishing between non-active activities (sitting, standing) and active activities (walking, jogging) 
 so that the app may distinguish between operation modes: if the user is non-active, recommend songs based on mood only; otherwise, recommend songs based on stride rate as well. 
