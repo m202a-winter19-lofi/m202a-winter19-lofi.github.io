@@ -209,7 +209,7 @@ to classify for our purposes. In other words, we don't care about differentiatin
 of this project: just knowing if the user is walking or jogging as opposed to staying still is informative enough for us to make appropriate music recommendations. 
 Of course, building on this project to recommend music for more granularly defined types of activities can follow directly from the groundwork we laid out here.</p>
 
-<p align="center"><img src="/assets/images/app.png"></p>
+<p align="center"><img src="/assets/images/app.png" height="400"></p>
 
 <p>Depicted above is a screenshot of the interface. The upper-left corner shows the inferred probability of each of the 4 types of activities, and the classified 
 activity has its probability colored red for easier identification. The upper-right corner contains manual entry fields for valence, arousal and stride rate values 
