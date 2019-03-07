@@ -57,7 +57,8 @@ activity is classified as active for at least 3 consecutive classifications.</p>
 
 # *Stride rate estimation*
 
-<p>To conduct these tests, the smartphone was placed in the user's front leg pocket and in their free hand a website [#] was used to estimate tempo by tapping a button repeatedly. 
+<p>To conduct these tests, the smartphone was placed in the user's front leg pocket and in their free hand another smartphone accessed a 
+website [#] that was used to estimate tempo by tapping a button repeatedly. 
 As the user walked or jogged at a consistent stride rate, they tapped a button on the website at the same rate as their feet hitting the ground. The tempo estimated by the 
 website, which estimates tempo identically to the smartphone implementation of stride rate estimation, is considered the ground truth.</p>
 

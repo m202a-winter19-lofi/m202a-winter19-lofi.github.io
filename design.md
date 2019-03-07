@@ -10,7 +10,7 @@ LOFI takes user inputs such as their mood, estimated using their heart rate vari
 
 
 
-# **Mood estimation**
+# *Mood estimation*
 
 ### Representing mood in 2 dimensions: the valence-arousal space
 <p>One of the first questions that naturally surfaced when thinking up this project was, "How can you possibly quantify something like mood?"</p>
@@ -44,7 +44,7 @@ variability over time. </p>
 
 
 
-# **Activity recognition**
+# *Activity recognition*
 
 ### Goals of activity recognition
 
@@ -141,7 +141,20 @@ probability was the maximum among these was the activity the sample is to be cla
 <p>The "adam" optimizer was used since it has been found to often give strong empirical results and it utilizes both running means of momentum and 
 past gradient history. A batch size of 400 samples was used in training the network over 10 epochs.</p>
 
-# **Song recommendation**
+### Stride rate estimation 
+
+<p>A stride is a step, but is typically meant to potentially indicate a step longer than one would take while just walking - the term is common in, for example,
+runner subculture. Stride rate is defined as the number of times one's feet hit the ground as they move per unit time. We choose to focus on strides per minute 
+due to the measure's resemblance to beats per minute, the unit of tempo used in music applications. Estimating the stride rate is important for the project since 
+the stride rate provides us a way to recommend songs based on their tempo to provide as close a match as possible.</p>
+
+<p>Stride rate is estimated by taking the average of 16 time differences between time-adjacent steps. In other words, every time a step is taken, 
+a stride rate is estimated by dividing 60 by the time difference between the last step and the step that was just detected. 16 consecutive such measurements 
+are averaged, and that effective stride rate is used to tempo-match with songs in the dataset. 16 steps was chosen due to its analogous relationship with 4 bars of music in 4/4, one of 
+the most common time signatures; 4 bars of music (comprised of 16 quarter beats) is almost always indicative of a song's overall tempo and runners tend to want to synchronize their 
+steps with the quarter beat of songs due to the importance and gravity of such beats in a musical context (they ground the song's strongest rhythms).</p>
+
+# *Song recommendation*
 
 ### K nearest neighbors for top recommendations 
 
@@ -173,12 +186,52 @@ songs that are too sad or relaxed are not suggested (an active workout would ben
 
 
 
-# Implementation
+# *Implementation*
 
 ### Translating everything to an app implementation 
 
-x
+<p>The project requires several components to implement. Heart rate measurements are taken by a Hexiwear module, which are then sent to an Android smartphone over 
+Bluetooth Low Energy. The Android Studio integrated development environment is used for app development, and the main development devices were an LG G5 and a 
+Samsung Galaxy S3. The online MBed OS IDE was used to write and flash programs to the Hexiwear.</p>
+
+<p>To put the trained CNN onto the phone to be able to readily classify new accelerometer data, the TensorFlow Lite library was used. More precisely, the network was 
+created and trained using the Keras Python library and was then converted to a .tflite model using a very handy conversion script [#].</p>
+
+<p>The dataset is included as a resource in the app and is cached at initialization of the program.</p>
+
+<p>Apart from the MainActivity class of the app, classes were created for ActivityRecognizer, MusicRecommender, and Song. Details of their implementation can be 
+seen in the source code. Only a single activity was used in the app for ease of debugging and user operation.</p>
+
+<p>Although prior analysis involved using a CNN to classify 6 different activities, the network actually implemented in the app is a 4-activity CNN classifying 
+sitting, walking, jogging, and standing. The reason for this is that in our application, we would equate activities of walking, jogging, walking upstairs and 
+walking downstairs to "active" activities (see more in the Results section) and therefore consider including walking upstairs/downstairs as redundant activities 
+to classify for our purposes. In other words, we don't care about differentiating walking upstairs from downstairs from just walking on a flat surface for the purposes 
+of this project: just knowing if the user is walking or jogging as opposed to staying still is informative enough for us to make appropriate music recommendations. 
+Of course, building on this project to recommend music for more granularly defined types of activities can follow directly from the groundwork we laid out here.</p>
+
+<p align="center"><img src="/assets/images/app.png"></p>
+
+<p>Depicted above is a screenshot of the interface. The upper-left corner shows the inferred probability of each of the 4 types of activities, and the classified 
+activity has its probability colored red for easier identification. The upper-right corner contains manual entry fields for valence, arousal and stride rate values 
+used for debugging. They can instead be populated by valence, arousal, and stride rate data calculated as detailed earlier in the report.</p>
+
+<p>The middle of the app is 
+populated by the top K = 5 song recommendations based on the inputs given. In this example, since only valence and arousal was entered manually, the song recommendations 
+are functions of only valence and arousal of songs. This can be confirmed by comparing the recommended songs' valence and arousal values with the inputted VA values. 
+The app will recommend songs based on stride rate as well if the user is inferred to be doing an "active" activity (walking or jogging) for at least 3 consecutive 
+activity inferences. Below the song recommendations are the running stride rate, which displays the most recent step-to-step stride rate estimation, and the effective 
+stride rate which is the average of the last 16 step-to-step stride rates calculated.  </p>
 
 ### Optimization 
 
-<p>Because the majority of the computing takes place on the smartphone, 
+<p>Because the majority of the computing takes place on the smartphone, it was important to take reasonable measures to optimize performance. Additionally, the 
+real-time nature of the system required constant and efficient computation as well as rendering of the results to the phone screen.</p>
+
+<p>The merged dataset used for looking up songs originally included columns giving the Deezer song ID and the MSD song ID. By trimming these columns from the 
+dataset, space was saved. Further improvements to saving space used by storing the dataset could come from enumerating the track IDs which are now a string of 
+characters. By converting these to unique 32-bit integers, more space can be saved.</p>
+
+<p>TensorFlow Lite is designed for optimized smartphone performance with practically unnoticeable differences in computations. This is accomplished through a 
+variety of ways, e.g. quantization of values as well as disallowing double type variables and only allowing floats, among others. The package helps to minimize 
+the memory needed to include such functions in the app as well as computation load. By choosing TensorFlow Lite instead of vanilla TensorFlow, the app 
+performance has improved while still delivering consistent results.</p>
