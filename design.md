@@ -221,14 +221,15 @@ Of course, building on this project to recommend music for more granularly defin
 
 <p>Depicted above is a screenshot of the interface. The upper-left corner shows the inferred probability of each of the 4 types of activities, and the classified 
 activity has its probability colored red for easier identification. The upper-right corner contains manual entry fields for valence, arousal and stride rate values 
-used for debugging. They can instead be populated by valence, arousal, and stride rate data calculated as detailed earlier in the report.</p>
+used for debugging. In practice, they are instead populated by valence, arousal, and stride rate data calculated as detailed earlier in the report.</p>
 
 <p>The middle of the app is 
 populated by the top K = 5 song recommendations based on the inputs given. In this example, since only valence and arousal was entered manually, the song recommendations 
 are functions of only valence and arousal of songs. This can be confirmed by comparing the recommended songs' valence and arousal values with the inputted VA values. 
 The app will recommend songs based on stride rate as well if the user is inferred to be doing an "active" activity (walking or jogging) for at least 3 consecutive 
 activity inferences. Below the song recommendations are the running stride rate, which displays the most recent step-to-step stride rate estimation, and the effective 
-stride rate which is the average of the last 16 step-to-step stride rates calculated.  </p>
+stride rate which is the average of the last 16 step-to-step stride rates calculated. Below that is the activity level state that the app is operating in, determining the
+song recommendation scheme. </p>
 
 ### Optimization 
 

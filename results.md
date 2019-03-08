@@ -57,10 +57,18 @@ activity is classified as active for at least 3 consecutive classifications.</p>
 
 # *Stride rate estimation*
 
+<p align="center"><img src="/assets/images/results_stride.PNG"></p>
+
 <p>To conduct these tests, the smartphone was placed in the user's front leg pocket and in their free hand another smartphone accessed a 
 website [#] that was used to estimate tempo by tapping a button repeatedly. 
 As the user walked or jogged at a consistent stride rate, they tapped a button on the website at the same rate as their feet hitting the ground. The tempo estimated by the 
-website, which estimates tempo identically to the smartphone implementation of stride rate estimation, is considered the ground truth.</p>
+website, which estimates tempo identically to the smartphone implementation of stride rate estimation, is considered the ground truth. 30 effective stride rate estimations 
+were captured for both walking and jogging. Again, walking was fixed at speed 2.5 mph and jogging at 6 mph.</p>
+
+<p>Stride rate estimation is better for jogging than for walking. Jogging inherently produces a more pronounced step that is easier for the step detector to confidently detect. One reason 
+that walking stride rate estimation tended to be higher than jogging is that sometimes during the test, the subject would turn around in place while at the end of the hall they walked down: 
+this sudden increase in frequency of steps could have contributd to the error observed. The 
+errors are relatively small and allow for recommending music based on stride rate as intended, still producing songs with a suitable tempo to jog to.</p>
 
 # *Mood estimation*
 
