@@ -9,11 +9,12 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 
 ## Source code
 
-* Android Studio project file 
-* "VAT" dataset of songs embedded with valence, arousal, tempo 
-* Dataset creation Jupyter notebook 
-* CNN training and exporting Jupyter notebook 
-* App APK
+* <a href="https://github.com/m202a-winter19-lofi/lofi">Android Studio project</a>
+* <a href="https://github.com/m202a-winter19-lofi/lofi/tree/master/app/src/main/assets">"VAT" dataset of songs embedded with valence, arousal, tempo</a>
+* <a href="https://github.com/m202a-winter19-lofi/lofi/blob/master/app/src/main/assets/activity_recognizer_4.tflite">TensorFlow Lite model of CNN used</a>
+* <a href="https://github.com/jcr179/misc/blob/master/dataset_creation.ipynb">Dataset creation Jupyter notebook</a>
+* <a href="https://github.com/jcr179/misc/blob/master/CNN_6.ipynb">CNN training and exporting Jupyter notebook</a>
+* <a href="https://github.com/m202a-winter19-lofi/lofi/blob/master/app/build/outputs/apk/debug/app-debug.apk">App APK</a> (Min API level is 21 = 5.0, Lollipop)
 
 
 

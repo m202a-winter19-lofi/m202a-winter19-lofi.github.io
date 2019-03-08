@@ -154,6 +154,8 @@ are averaged, and that effective stride rate is used to tempo-match with songs i
 the most common time signatures; 4 bars of music (comprised of 16 quarter beats) is almost always indicative of a song's overall tempo and runners tend to want to synchronize their 
 steps with the quarter beat of songs due to the importance and gravity of such beats in a musical context (they ground the song's strongest rhythms).</p>
 
+<p>The step detector sensor in Android Studio was used to detect when steps are taken and the corresponding sensor event timestamps each step.</p>
+
 # *Song recommendation*
 
 ### K nearest neighbors for top recommendations 
@@ -183,6 +185,12 @@ The subscript *x* refers to the values of a user's mood (a user's cadence when r
 value can either be 1 or 0; *θ* = 1 if the user is active (jogging), else *θ* = 0. The subscript *θ* in the last term of the equation are the biases applied to 
 the valence and arousal value regardless of user mood or song: if the user is jogging, we want to bias the valence and arousal of suggested songs such that 
 songs that are too sad or relaxed are not suggested (an active workout would benefit from a higher-energy, positive playlist). 
+
+<p>The user's activity state is classified as either active or non-active. The user state is used in determining how to weigh the song recommendation (3). 
+At initialization, the user starts in the non-active state. "Active" activities include walking and jogging, and "non-active" activities include sitting and standing 
+(more elaboration on this is provided in the Implementation section). If the user has 3 consecutive "active" activities classified, the user transitions to 
+active state. If while in active state the user has 3 consecutive "non-active" activities classified, the user transitions to non-active state. The number of required 
+consecutive classifications was determined from testing results as elaborated on in the Results section of the report. </p>
 
 
 
