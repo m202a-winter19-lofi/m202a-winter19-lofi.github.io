@@ -15,6 +15,8 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 * <a href="https://github.com/jcr179/misc/blob/master/dataset_creation.ipynb">Dataset creation Jupyter notebook</a>
 * <a href="https://github.com/jcr179/misc/blob/master/CNN_6.ipynb">CNN training and exporting Jupyter notebook</a>
 * <a href="https://github.com/m202a-winter19-lofi/lofi/blob/master/app/build/outputs/apk/debug/app-debug.apk">App APK</a> (Min API level is 21 = 5.0, Lollipop)
+* Hexiwear code (PPG data to SDNN and LF/HF + Bluetooth transmission)
+* <a href="https://github.com/m202a-winter19-lofi/raspberry_pi_zero_w">Code on the Raspberry Pi Zero W</a> (includes installed packages list)
 
 
 
@@ -76,7 +78,7 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 
 # About the authors
 
-### Juan Carlo Rebanal (005227239)
+### Juan Carlo Rebanal (UID 005227239)
 
 Juan is a Masters student in Electrical and Computer Engineering at UCLA. He is most interested in deep learning applications, and also enjoys working with machine learning. 
 Juan trained and implemented the convolutional neural network featured in this project for activity recognition with classification accuracy of 99.87%. He also surveyed, 
@@ -84,7 +86,7 @@ preprocessed and worked with the datasets used in the project. Juan also develop
 in the project system. While waiting for models to train, Juan likes to create and discover music, play fighting games like Street Fighter 3: 3rd Strike, learn languages, and to 
 exercise. 
 
-### Jeannie Hur (???)
+### Jeannie Hur (UID ???)
 
 Eats dried lemons
 
