@@ -63,24 +63,33 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 * Began working on this project website 
 
 ## Week 9
-* ?
+* Implemented various versions of SDNN and LF/HF measurement algorithms for VA estimation 
+* Evaluated activity recognition and stride rate estimation deployed on smartphone 
+* Evaluated SDNN and LF/HF measurement with a test subject 
+* Fleshed out app features and UI
+* Uploaded source code to project site 
 
 ## Week 10
-* ?
-
-
-
+* Implemented Raspberry Pi Zero W 
+* Tested and evaluated entire system 
+* Created demo video  
 
 # About the authors
 
-## Juan Carlo Rebanal (005227239)
+### Juan Carlo Rebanal (005227239)
 
-Plays Street Fighter 3
+Juan is a Masters student in Electrical and Computer Engineering at UCLA. He is most interested in deep learning applications, and also enjoys working with machine learning. 
+Juan trained and implemented the convolutional neural network featured in this project for activity recognition with classification accuracy of 99.87%. He also surveyed, 
+preprocessed and worked with the datasets used in the project. Juan also developed the Android app that implements the project, and implemented the Raspberry Pi Zero W 
+in the project system. While waiting for models to train, Juan likes to create and discover music, play fighting games like Street Fighter 3: 3rd Strike, learn languages, and to 
+exercise. 
 
-## Jeannie Hur (???)
+### Jeannie Hur (???)
 
 Eats dried lemons
 
-# What does LOFI mean? 
+### What does LOFI mean? 
 
-Glad you asked...
+LoFi stands for Logical Fitness. We refer to using a logical system to recommend music to improve physical and mental fitness. Though at its core, the project name was 
+inspired by those lo-fi hip-hop playlists that have popped up across YouTube in the last few years, often making up various "study/chill/sleep" playlists. So we wanted to fit in the 
+tongue-in-cheek reference too. (:

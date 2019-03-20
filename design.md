@@ -15,7 +15,7 @@ LOFI takes user inputs such as their mood, estimated using their heart rate vari
 ### Representing mood in 2 dimensions: the valence-arousal space
 <p>One of the first questions that naturally surfaced when thinking up this project was, "How can you possibly quantify something like mood?"</p>
 <p>In 1992, a paper was published that introduced a 2-dimensional, continuous representation of emotion in the Journal of Experimental Psychology [1].
-This came to be known as the valence-arousal model of emotion, where different regions of the space represent different types of emotions.</p>
+This came to be known as the valence-arousal model of emotion (or, Circumplex Model of Affect), where different regions of the space represent different types of emotions.</p>
 
 <p align="center"><img src="/assets/images/va_space.png"></p>
 
@@ -49,8 +49,8 @@ variability over time. </p>
 ### Goals of activity recognition
 
 <p>For this iteration of the project, the goal is to be able to distinguish between times when the user is active (i.e. jogging) or not active (i.e. studying or commuting). 
-In the case of a user jogging, the system will aim to suggest music with a tempo matching their cadence.
-Indeed, music recommended to the user depends on which of these two states they are in. In a more relaxed state, VA values of the song are weighted more heavily in 
+In the case of a user jogging, the system will aim to suggest music with a tempo matching their cadence as a priority, and matching mood is treated as secondary.
+Indeed, music recommended to the user depends on which of these two states they are in. In a more relaxed state, VA values of the song are the only factors in 
 selecting song recommendations. But in a jogging state, where running to a song with a matching tempo makes more of an impact on the user's experience, song tempos are 
 weighed more heavily.</p>
 
@@ -138,7 +138,8 @@ A dropout rate of 0.5 was used (half of the neurons would be "on"). Lastly, the 
 connected affine layer whose output is then fed to a softmax function to convert the scores into classification probabilities. The class (activity type) whose
 probability was the maximum among these was the activity the sample is to be classified as.</p>
 
-<p>The "adam" optimizer was used since it has been found to often give strong empirical results and it utilizes both running means of momentum and 
+<p>The Adam optimizer was used (with the Keras default learning rate and learning rate decay) since it has been found to often give strong empirical 
+results as it utilizes both running means of momentum and 
 past gradient history. A batch size of 400 samples was used in training the network over 10 epochs.</p>
 
 ### Stride rate estimation 
@@ -198,17 +199,25 @@ consecutive classifications was determined from testing results as elaborated on
 
 ### Translating everything to an app implementation 
 
-<p>The project requires several components to implement. Heart rate measurements are taken by a Hexiwear module, which are then sent to an Android smartphone over 
-Bluetooth Low Energy. The Android Studio integrated development environment is used for app development, and the main development devices were an LG G5 and a 
-Samsung Galaxy S3. The online MBed OS IDE was used to write and flash programs to the Hexiwear.</p>
+<p>The project requires several components to implement. Heart rate measurements are taken by a Hexiwear module, which are then sent to a Raspberry Pi Zero W over Bluetooth 
+Low Energy. Using PuTTY we could SSH into the Pi running Raspbian Lite and do everything we had to do over the command line. Key Python libraries used on the Pi were 
+Cherrypy to host a webpage where encoded VA values would be posted to, and bluepy + bluez for handling BLE events. The Android Studio integrated development environment 
+is used for app development, and the main development devices were an LG G5 and a Samsung Galaxy S3. The online MBed OS IDE was used to write and flash programs to the Hexiwear.</p>
+
+<p>The online MBed OS IDE was the primary tool used to implement code written in C++ on the Hexiwear. Matlab was initially used to test out SDNN and LF/HF measurement algorithms, which 
+were then rewritten in C++ for the Hexiwear to calculate them before sending VA estimates over BLE. The Pi receives these encoded VA estimates, and then writes them to a file that a 
+concurrently-running Cherrypy script reads from to know what value to host on its website. The Pi is connected to a hotspot created by the smartphone and the app running on the same 
+smartphone pulls this value from the website at the tap of a button. In the future, it would be ideal to remove the Pi as middleman of the system and have Hexiwear communicate directly 
+to the smartphone. This design choice was made for ease of initial implementation.</p> 
 
 <p>To put the trained CNN onto the phone to be able to readily classify new accelerometer data, the TensorFlow Lite library was used. More precisely, the network was 
-created and trained using the Keras Python library and was then converted to a .tflite model using a very handy conversion script [#].</p>
+created and trained using the Keras Python library and was then converted to a .tflite model using a very handy .h5 to .tflite conversion script [#].</p>
 
 <p>The dataset is included as a resource in the app and is cached at initialization of the program.</p>
 
-<p>Apart from the MainActivity class of the app, classes were created for ActivityRecognizer, MusicRecommender, and Song. Details of their implementation can be 
-seen in the source code. Only a single activity was used in the app for ease of debugging and user operation.</p>
+<p>Apart from the MainActivity class of the app, classes were created for ActivityRecognizer, MusicRecommender, Song, StateMachine, and GetFromSite. Details of their implementation can be 
+seen in the source code. Only a single activity was used in the app for ease of debugging and user operation, but asynchronous tasks were needed to implement the network features to read 
+VA values from the Pi-hosted site.</p>
 
 <p>Although prior analysis involved using a CNN to classify 6 different activities, the network actually implemented in the app is a 4-activity CNN classifying 
 sitting, walking, jogging, and standing. The reason for this is that in our application, we would equate activities of walking, jogging, walking upstairs and 
@@ -231,6 +240,11 @@ activity inferences. Below the song recommendations are the running stride rate,
 stride rate which is the average of the last 16 step-to-step stride rates calculated. Below that is the activity level state that the app is operating in, determining the
 song recommendation scheme. </p>
 
+<p>Below that is the encoded VA value next to the button the user can tap to read their current value from the Pi-hosted site ("GET VA"). Underneath are 4 manual adjustment buttons 
+that the user can use to adjust the mood of songs initially recommended to them without having to rely completely on the VA estimates. Tapping the buttons changes the effective 
+valence and arousal values used to recommend songs, which are shown as a pair at the bottom of the user interface. Tapping "Upbeat"/"Downer" increases/decreases valence by 0.05 and 
+tapping "Hype/Chill" increases/decreases arousal by 0.05.</p>
+
 ### Optimization 
 
 <p>Because the majority of the computing takes place on the smartphone, it was important to take reasonable measures to optimize performance. Additionally, the 
@@ -244,3 +258,6 @@ characters. By converting these to unique 32-bit integers, more space can be sav
 variety of ways, e.g. quantization of values as well as disallowing double type variables and only allowing floats, among others. The package helps to minimize 
 the memory needed to include such functions in the app as well as computation load. By choosing TensorFlow Lite instead of vanilla TensorFlow, the app 
 performance has improved while still delivering consistent results.</p>
+
+<p>Moving forward, some of the app code can be refactored to remove some redundancies and to make some components more generalizable to different numbers of parameters 
+(such as making the number of activities to classify modular).</p>
