@@ -13,7 +13,7 @@ gives context to the latent emotional space inhabited by music.</p>
 
 <p>Hu et. al wrote about lyric text mining in music mood classification [2a], citing a "ceiling" to the mood classification that could be done just with frequency 
 analysis. They also discuss the difficulties of creating ground truth datasets and go through considerable efforts to create their own. They distinguish between 
-18 moods, much more granularity than in our project, and open us up to just how finely emotions can be discriminated when using text semantic analysis.<p>
+18 moods, much more granularity than in our project, and open us up to just how finely emotions can be discriminated when using text semantic analysis.</p>
 
 <p>Laurier et. al also tackle the problem of mood classification of music through a multimodal approach [3a]. They compare classifications of songs using 
 musical features and lyrics independently, then look into combining the two. In summary, they find that musical feature-based classification out-performs 
