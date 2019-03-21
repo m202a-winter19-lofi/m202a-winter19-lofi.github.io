@@ -3,6 +3,32 @@ layout: page
 title: "References"
 ---
 
+[1a] R´emi Delbouys, Romain Hennequin, Francesco Piccoli, Jimena Royo-Letelier, Manuel Moussallam. Music Mood Detection Based on Audio and Lyrics with Deep Neural Net. 2018.
+
+[2a] Xiao Hu, J. Stephen Downie, and Andreas F. Ehmann. LYRIC TEXT MINING IN MUSIC MOOD CLASSIFICATION. 2009.
+
+[3a] Cyril Laurier, Jens Grivolla, and Perfecto Herrera. Multimodal Music Mood Classification using Audio and Lyrics. 2008.
+
+[4a] Erion Cano and Maurizio Morisio. MoodyLyrics: A Sentiment Annotated Lyrics Dataset. 2017.
+
+[5a] Ricardo Malheiro, Renato Panda, Paulo Gomes and Rui Pedro Paiva. Emotionally-Relevant Features for Classification and Regression of Music Lyrics. 2018.
+
+[1x] Fernando Moya Rueda , René Grzeszick, Gernot A. Fink, Sascha Feldhorst, and Michael ten Hompel. Convolutional Neural Networks for Human Activity Recognition Using Body-Worn Sensors. 2018.
+
+[2x] Jian Bo Yang, Minh Nhut Nguyen, Phyo Phyo San, Xiao Li Li, and Shonali Krishnaswamy. Deep Convolutional Neural Networks On Multichannel Time Series For Human Activity Recognition. 2015.
+
+[3x] Charissa Ann Ronao and Sung-Bae Cho. Deep Convolutional Neural Networks for Human Activity Recognition with Smartphone Sensors. 2015.
+
+[4x] Jindong Wang, Yiqiang Chen, Shuji Hao, Xiaohui Peng, and Lisha Hu. Deep Learning for Sensor-based Activity Recognition: A Survey. 2017.
+
+[5x] Jennifer R. Kwapisz, Gary M. Weiss, and Samuel A. Moore. Activity Recognition using Cell Phone Accelerometers. 2010.
+
+[6x] Abdulmajid Murad and Jae-Young Pyun. Deep Recurrent Neural Networks for Human Activity Recognition. 2017.
+
+[1y] Mikhail Rumiantcev. MUSIC ADVISER – EMOTION-DRIVEN MUSIC RECOMMENDATION ECOSYSTEM. 2017.
+
+[2y] Ivana Andjelkovica, Denis Parrab, and John O’Donovana. Moodplay: Interactive Music Recommendation based on Artists’ Mood Similarity. 2018.
+
 [3] Delbouys et. al. Deezer mood detection dataset. https://github.com/deezer/deezer_mood_detection_dataset accessed February 2019.
 
 [5] Kwapisz et. al. Activity prediction dataset. http://www.cis.fordham.edu/wisdm/dataset.php accessed February 2019. 

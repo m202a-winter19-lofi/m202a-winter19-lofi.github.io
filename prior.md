@@ -82,7 +82,7 @@ interpretability, implementation and explainability. </p>
 <p>Rumiantcev published a thesis on an emotion-driven music recommendation system [1y]. While our project is real-time and constantly up to date with user mood, 
 this thesis requires a user to answer explicit questions about their mood in a questionnaire before recommendations are given. </p> 
 
-<p>Andjelkovic et. al introduce their system, Moodplay, as an interactive music recommendation system based on artists' mood similarity. They look into interesting 
+<p>Andjelkovic et. al introduce their system, Moodplay, as an interactive music recommendation system based on artists' mood similarity [2y]. They look into interesting 
 extensions of the problems we address in our project, such as recommending music based on 
 user mood that doesn't necessarily match the users' mood, but instead contrasts it. For example, a sad user may want happy music to help lift them up. 
 They approach this by "pathing" from the current perceived emotional state to the target state. They also reinforce the benefits in health of music therapy, including 
