@@ -70,10 +70,42 @@ that walking stride rate estimation tended to be higher than jogging is that som
 this sudden increase in frequency of steps could have contributd to the error observed. The 
 errors are relatively small and allow for recommending music based on stride rate as intended, still producing songs with a suitable tempo to jog to.</p>
 
-# *Mood estimation*
+# *HRV estimation*
 
-...
+<p>We needed to know if our calculated SDNN and LF/HF were reasonable values. So, we compared our results with a paper measuring many measurements of HRV, 
+two of which were SDNN and LF/HF.  The below table shows the measurements from the research paper [17].</p>
+
+<p align="center"><img src="/assets/images/hrv_res_table.PNG"></p>
+
+<p>We compared this to our results:</p>
+
+<p align="center"><img src="/assets/images/hrv_res_table2.PNG"></p>
+
+<p>We calculated HF/LF over a 30 second interval and got HF/LF = 0.763. Since our results are within the range of reasonable values, we determined that our results 
+were acceptable.</p>
+
+# *Mood estimation* 
+
+<p>To test the reasonableness of our mood calculations, we tested it on a subject. This subject was not one of the authors to keep the results less biased. 
+The subject had the Hexiwear on his index finger when measuring the PPG signal. The initial SDNN and LF/HF were calculated based on a 30 second measurement 
+when the subject had no stimuli. Then, the subject’s SDNN and LF/HF were calculated based on the PPG taken when he was watching a sad video of animals almost 
+dying. Film clips are used in research to elicit certain emotional responses, and research papers have found that pictures of animals dying are very effective 
+in making subjects sad [18]. The PPG data when watching the sad video was split into two 15 sec intervals.</p>
+
+<p align="center"><img src="/assets/images/mood_res_table.PNG"></p>
+
+<p>As you can see on the Valence/Arousal model, (-0.75, 0) and (-0.75, -0.75) map to the Depressed region. Hence, this shows that our algorithm is at 
+least reasonable.</p>
+
 
 # *Song recommendation*
 
-<p>5 users ... </p>
+<p>We recommended 5 songs based on valence, arousal, and cadence. If the user is detected in active mode, then song recommendations are weighted towards cadence, but 
+valence and arousal are still considered. Below shows the recommendations in active mode.</p>
+
+<p align="center"><img src="/assets/images/app_res1.PNG"></p>
+
+<p>If the user is detected in non-active mode, then the song recommendation is based solely on valence and arousal, since there is no cadence to be measured. 
+Below shows the recommendations in non-active mode.</p>
+
+<p align="center"><img src="/assets/images/app_res2.PNG"></p>

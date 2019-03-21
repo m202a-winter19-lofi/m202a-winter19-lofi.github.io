@@ -3,8 +3,16 @@ layout: page
 title: "Prior Work"
 ---
 
-# *Effects of music on mood* 
-<p>x</p>
+# *Effects of music on mood and exercise* 
+<p>As research shows, music stimulates emotions and hence mood [15]. Since people tend to like music that sympathizes with them, people also seem 
+to have a habit of choosing music based on the mood they are already feeling. This translates to that when people are feeling happy, sorrowful, or angry, 
+they will generally want to listen to that type of music. By listening to music that sympathizes with one’s mood, people are able to process their emotion, 
+even those held on a subconscious level.</p>
+
+<p>Music evokes a “distraction effect” that increases comfort level when exercising [11]. A distraction effect is what keeps people from fully realizing 
+their body’s exhaustion, hence allowing them to keep exercising. A research study from Sports Med Open found that playing music with tempo that matches one's 
+cadence further enhances the “distraction effect” [10]. Cadence is the frequency of steps when running or walking. In their results, they showed that subjects 
+had significant increase in adherence/motivation to exercise when listening to music with tempos that matched their cadence.</p>
 
 # *Relationship between mood and music* 
 
@@ -31,7 +39,16 @@ achieve classification accuracy of 80.1% in quadrant-based VA classification.</p
 
 # *Emotion estimation from heart rate variability*
 
-<p>x</p>
+<p>Heart rate variability (HRV) is a generic term used to describe many measures of the heart, two of which are standard deviation of normal-normal R-R peaks (SDNN), 
+absolute power in low frequency (LF), and absolute power in high frequency (HF). Many studies have tried to find the relation between mood and HRV. In these studies, 
+valence and arousal are measures used to represent mood [13]. The Valence/Arousal plot is a model that was developed by Russel, and the formal name of it is 
+Circumplex Model of Affect.</p>
+
+<p>Research from National Chiao Tung University studied the correlation between music, heart rate variability, and mood [12]. They stated that SDNN can be used 
+to estimate the valence axis, and LF/HF and can be used to estimate the arousal axis.  Just like how everyone has a different heart rate or blood pressure, 
+everyone has their individual SDNN and LF/HF. So, it’s not enough to simply map their SDNN and LF/HF to a point of the Valence/Arousal plot. Instead, change 
+of SDNN and gain of LF/HF can be used to estimate change of mood [14]. Kwansei Gakuin University studied the correlation between mood and heart rate variability 
+indices during daily life, and observed that changes of HRV gave promising results for estimating change of mood.</p>
 
 # *Activity recognition* 
 
@@ -62,5 +79,12 @@ interpretability, implementation and explainability. </p>
 
 # *Systems that use mood to recommend music* 
 
-<p>that one where you do a questionnaire and it's not real time. mani's former students' from 2006.</p> 
+<p>Rumiantcev published a thesis on an emotion-driven music recommendation system [1y]. While our project is real-time and constantly up to date with user mood, 
+this thesis requires a user to answer explicit questions about their mood in a questionnaire before recommendations are given. </p> 
+
+<p>Andjelkovic et. al introduce their system, Moodplay, as an interactive music recommendation system based on artists' mood similarity. They look into interesting 
+extensions of the problems we address in our project, such as recommending music based on 
+user mood that doesn't necessarily match the users' mood, but instead contrasts it. For example, a sad user may want happy music to help lift them up. 
+They approach this by "pathing" from the current perceived emotional state to the target state. They also reinforce the benefits in health of music therapy, including 
+positive effects on movement in patients who have suffered a stroke. </p>
 

@@ -16,6 +16,7 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 * <a href="https://github.com/jcr179/misc/blob/master/CNN_6.ipynb">CNN training and exporting Jupyter notebook</a>
 * <a href="https://github.com/m202a-winter19-lofi/lofi/blob/master/app/build/outputs/apk/debug/app-debug.apk">App APK</a> (Min API level is 21 = 5.0, Lollipop)
 * Hexiwear code (PPG data to SDNN and LF/HF + Bluetooth transmission)
+* PPG signal processing code 
 * <a href="https://github.com/m202a-winter19-lofi/raspberry_pi_zero_w">Code on the Raspberry Pi Zero W</a> (includes installed packages list)
 
 
@@ -86,9 +87,11 @@ preprocessed and worked with the datasets used in the project. Juan also develop
 in the project system. While waiting for models to train, Juan likes to create and discover music, play fighting games like Street Fighter 3: 3rd Strike, learn languages, and to 
 exercise. 
 
-### Jeannie Hur (UID ???)
+### Jeannie Hur (UID 504955572)
 
-Eats dried lemons
+Jeannie is an Electrical Engineering undergraduate at UCLA. She designed the signal processing of the photoplethysmography signal (PPG) measured with the Hexiwear 
+and implemented the code to calculate heart rate variability. She handled most of the coding of the Hexiwear. When she’s not debugging the Hexiwear, she enjoys 
+trying interesting food from Trader Joe’s and occasionally walking in parks.
 
 ### What does LOFI mean? 
 

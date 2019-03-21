@@ -35,14 +35,57 @@ By using a variety of techniques such as lyric semantic analysis, MFCC analysis 
 between 4 key "bins" of mood can be distinguished. Each data point plotted represents the valence and arousal value of a given song. Happy (yellow) songs are positive and high energy. 
 Relaxed (green) songs are positive and low energy. Their respective complements are: sad (blue) songs that are negative with low energy, and angry (red) songs that are negative with high energy.</p>
 
+### Signal processing of PPG signal 
+
+<p>To calculate the HRV of the user, we analyzed the PPG signal measured by the Hexiwear. The PPG signal was measured over 5 seconds because the Hexiwear had 
+limited local memory and its processor is relatively weak for our application. Hence, to keep the mood sent by the Hexiwear to be delivered within 45 seconds 
+and not exceed Hexiwear’s memory, we had to limit the signal measurement period to 5 seconds.</p>
+
+<p>Since the PPG signal measured by the Hexiwear is very noisy, we needed to implement some algorithms to make the signal reasonably useable. So, we first 
+subtracted the moving average of PPG signal from itself to normalize the signal. The below figure shows the plot of the raw PPG signal and its center moving 
+average that has a window size of 25. Note that the below plots were taken over 30 seconds for better visualization of what our algorithm looks like.</p>
+
+<p align="center"><img src="/assets/images/ppg.PNG"></p>
+
+<p>After normalizing the signal, we smoothed it out. To smooth it out, we set it equal to its moving average with a window size of 2. Using AMPD Algorithm as 
+recommended in [16], we located the peaks as shown below. The window size for the AMPD Algorithm was chosen to be 25.</p>
+
+<p align="center"><img src="/assets/images/ppg_smooth.PNG"></p>
+
+<p>By inspection, the points determined to be local maximas by the algorithm are indeed maximas. Then, we find the time between each peak, and the below plot 
+shows our derived 
+inter-arrival times. Sometimes there are outliers though, and to control those, we set the outliers to be equal to some value. </p>
+
+<p align="center"><img src="/assets/images/interarrival_times.PNG"></p>
+
+<p>We use the inter-arrival times to calculate the SDNN. The formula for SDNN will be given later. To find HF and LF, we need to find the signal in its 
+frequency domain. So, we found the Fast Fourier Transform (FFT) of the normalized and smoothed signal for best results. The plot below shows the FFT.</p>
+
+<p align="center"><img src="/assets/images/fft.PNG"></p>
+
+<p>We are only interested in the frequency range from 0.04 Hz to 0.4 Hz for calculating HF and LF, so we zoomed the signal in to show the area of interest better. 
+Below shows the zoomed in FFT.</p>
+
+<p align="center"><img src="/assets/images/fft_zoom.PNG"></p>
+
+
 ### Heart rate variability (HRV) and the VA space
 
-<p>In 2009, Stickel et. al wrote about how they mapped readings of heart rate variability to the VA space [5]. ... 
-Using this method, measurements of heart rate variability can then be mapped to the VA space. By using a Hexiwear to measure heart rate, 
-measurements can be sent over BLE to a bridge device (in this case, an Android smartphone) to make measurements in change of heart rate 
-variability over time. </p>
+<p>We found the HRV of the user by analyzing the PPG signal measured by the Hexiwear. Taking the inter-arrival times as I(n), we calculate SDNN by </p>
 
+<p align="center"><img src="/assets/images/eqn_sdnn.PNG"></p>
 
+<p>Next, we calculate LF by integrating the FFT over the domain (0.04 Hz, 0.15 Hz) and then HF by integrating the FFT over the domain (0.15 Hz, 0.4 Hz). 
+The calculation of LF/HF is trivial.</p>
+
+<p>We take the first SDNN and LF/HF to map to the origin on the Valence/Arousal model. We then mapped the following HRV measurements to one of 25 points 
+on the Valence/Arousal model. These 25 points are labeled below.</p>
+
+<p align="center"><img src="/assets/images/va_keypoints.PNG"></p>
+
+<p>If change of SDNN is in some range, we mapped it to one of 5 specified valence values selected from {-1.5, -0.75, 0, 0.75, 1.5}. Similarly, the gain of 
+LF/HF is mapped to 5 values of arousal. These ranges were estimated from the paper [14]. The red numbers are the encoded (Arousal, Valence) of the points. 
+We chose to encode them to integer values from 1 to 5 for easier data transmission, since it’s unnecessary to send a float value.</p>
 
 # *Activity recognition*
 
