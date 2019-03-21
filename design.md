@@ -97,7 +97,7 @@ Indeed, music recommended to the user depends on which of these two states they 
 selecting song recommendations. But in a jogging state, where running to a song with a matching tempo makes more of an impact on the user's experience, song tempos are 
 weighed more heavily.</p>
 
-<p>To build on the aforementioned Deezer dataset with this in mind, we used the Million Songs dataset (MSD) [5x] to lift the VA representation of songs to the 3rd dimension: tempo. 
+<p>To build on the aforementioned Deezer dataset with this in mind, we used the Million Songs dataset (MSD) [9] to lift the VA representation of songs to the 3rd dimension: tempo. 
 Since the Deezer dataset was made from songs in the MSD, one of the dataset's fields was the MSD track ID. Using this field, songs in the Deezer set could be looked up in the MSD, where 
 those songs have a variety of high-level feature information, one of such features being tempo. By appending this new column to the Deezer dataset, we can arrive at a 3D visualization of what 
 we can now call VAT space (valence, arousal, tempo).</p>

@@ -10,7 +10,7 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 ## Source code
 
 * <a href="https://github.com/m202a-winter19-lofi/lofi">Android Studio project for LoFi app</a>
-* <a href="https://github.com/m202a-winter19-lofi/lofi/tree/master/app/src/main/assets">"VAT" dataset of songs embedded with valence, arousal, tempo</a>
+* <a href="https://drive.google.com/open?id=1nUYwaLAjH-Kj6XpTtasSFH0t-rxEffza">UCLA Drive folder for datasets: VAT, Deezer original, Million Songs, Activity prediction</a>
 * <a href="https://github.com/m202a-winter19-lofi/lofi/blob/master/app/src/main/assets/activity_recognizer_4.tflite">TensorFlow Lite model of CNN used</a>
 * <a href="https://github.com/jcr179/misc/blob/master/dataset_creation.ipynb">Dataset creation Jupyter notebook</a>
 * <a href="https://github.com/jcr179/misc/blob/master/CNN_6.ipynb">CNN training and exporting Jupyter notebook</a>
