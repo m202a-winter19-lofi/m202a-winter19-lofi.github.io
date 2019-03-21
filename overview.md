@@ -9,14 +9,13 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 
 ## Source code
 
-* <a href="https://github.com/m202a-winter19-lofi/lofi">Android Studio project</a>
+* <a href="https://github.com/m202a-winter19-lofi/lofi">Android Studio project for LoFi app</a>
 * <a href="https://github.com/m202a-winter19-lofi/lofi/tree/master/app/src/main/assets">"VAT" dataset of songs embedded with valence, arousal, tempo</a>
 * <a href="https://github.com/m202a-winter19-lofi/lofi/blob/master/app/src/main/assets/activity_recognizer_4.tflite">TensorFlow Lite model of CNN used</a>
 * <a href="https://github.com/jcr179/misc/blob/master/dataset_creation.ipynb">Dataset creation Jupyter notebook</a>
 * <a href="https://github.com/jcr179/misc/blob/master/CNN_6.ipynb">CNN training and exporting Jupyter notebook</a>
 * <a href="https://github.com/m202a-winter19-lofi/lofi/blob/master/app/build/outputs/apk/debug/app-debug.apk">App APK</a> (Min API level is 21 = 5.0, Lollipop)
-* Hexiwear code (PPG data to SDNN and LF/HF + Bluetooth transmission)
-* PPG signal processing code 
+* <a href="https://github.com/m202a-winter19-lofi/hexiwear_mood_estimation">Hexiwear, PPG signal processing code</a> (PPG data to SDNN and LF/HF + Bluetooth transmission)
 * <a href="https://github.com/m202a-winter19-lofi/raspberry_pi_zero_w">Code on the Raspberry Pi Zero W</a> (includes installed packages list)
 
 
@@ -81,6 +80,8 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 
 ### Juan Carlo Rebanal (UID 005227239)
 
+<p align="center"><img src="/assets/images/carlo.jpg" height="200"></p>
+
 Juan is a Masters student in Electrical and Computer Engineering at UCLA. He is most interested in deep learning applications, and also enjoys working with machine learning. 
 Juan trained and implemented the convolutional neural network featured in this project for activity recognition with classification accuracy of 99.87%. He also surveyed, 
 preprocessed and worked with the datasets used in the project. Juan also developed the Android app that implements the project, and implemented the Raspberry Pi Zero W 
@@ -88,6 +89,8 @@ in the project system. While waiting for models to train, Juan likes to create a
 exercise. 
 
 ### Jeannie Hur (UID 504955572)
+
+<p align="center"><img src="/assets/images/jeannie.png" height="200"></p>
 
 Jeannie is an Electrical Engineering undergraduate at UCLA. She designed the signal processing of the photoplethysmography signal (PPG) measured with the Hexiwear 
 and implemented the code to calculate heart rate variability. She handled most of the coding of the Hexiwear. When she’s not debugging the Hexiwear, she enjoys 

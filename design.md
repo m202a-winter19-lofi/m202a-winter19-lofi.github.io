@@ -14,7 +14,7 @@ LOFI takes user inputs such as their mood, estimated using their heart rate vari
 
 ### Representing mood in 2 dimensions: the valence-arousal space
 <p>One of the first questions that naturally surfaced when thinking up this project was, "How can you possibly quantify something like mood?"</p>
-<p>In 1992, a paper was published that introduced a 2-dimensional, continuous representation of emotion in the Journal of Experimental Psychology [1].
+<p>In 1992, a paper was published that introduced a 2-dimensional, continuous representation of emotion in the Journal of Experimental Psychology [13].
 This came to be known as the valence-arousal model of emotion (or, Circumplex Model of Affect), where different regions of the space represent different types of emotions.</p>
 
 <p align="center"><img src="/assets/images/va_space.png"></p>
@@ -23,7 +23,7 @@ This came to be known as the valence-arousal model of emotion (or, Circumplex Mo
 For example, an emotion like happiness is characterized by high valence and high arousal, whereas anger is characterized by low valence and high arousal.
 This representation of emotion is desirable for our application since it is easy to visualize and to work with. </p>
 
-<p>In 2018, researchers at Deezer, a music streaming service, published a paper on music mood classification [2] and a dataset of songs embedded with their respective VA values [3].
+<p>In 2018, researchers at Deezer, a music streaming service, published a paper on music mood classification [1a] and a dataset of songs embedded with their respective VA values [3].
 By using a variety of techniques such as lyric semantic analysis, MFCC analysis (Mel frequency cepstral coefficients: what instruments and timbres were present) and crowdsourced tag analysis 
 (mapping valence and arousal values to user tags of songs like "danceable" or "chill"), VA values for each song were algorithmically generated and standardized across the dataset.</p>
 
@@ -31,7 +31,7 @@ By using a variety of techniques such as lyric semantic analysis, MFCC analysis 
 
 <p align="center"><img src="/assets/images/deezer_va.PNG"></p>
 
-<p>By dividing the valence-arousal space into 4 quadrants as per the paper on MoodyLyrics by Çano and Morisio [4], the distribution of the Deezer dataset's distinction 
+<p>By dividing the valence-arousal space into 4 quadrants as per the paper on MoodyLyrics by Çano and Morisio [4a], the distribution of the Deezer dataset's distinction 
 between 4 key "bins" of mood can be distinguished. Each data point plotted represents the valence and arousal value of a given song. Happy (yellow) songs are positive and high energy. 
 Relaxed (green) songs are positive and low energy. Their respective complements are: sad (blue) songs that are negative with low energy, and angry (red) songs that are negative with high energy.</p>
 
@@ -73,7 +73,7 @@ Below shows the zoomed in FFT.</p>
 
 <p>We found the HRV of the user by analyzing the PPG signal measured by the Hexiwear. Taking the inter-arrival times as I(n), we calculate SDNN by </p>
 
-<p align="center"><img src="/assets/images/eqn_sdnn.PNG"></p>
+<p align="center"><img src="/assets/images/eqn_sdnn.PNG">    (1)</p>
 
 <p>Next, we calculate LF by integrating the FFT over the domain (0.04 Hz, 0.15 Hz) and then HF by integrating the FFT over the domain (0.15 Hz, 0.4 Hz). 
 The calculation of LF/HF is trivial.</p>
@@ -97,7 +97,7 @@ Indeed, music recommended to the user depends on which of these two states they 
 selecting song recommendations. But in a jogging state, where running to a song with a matching tempo makes more of an impact on the user's experience, song tempos are 
 weighed more heavily.</p>
 
-<p>To build on the aforementioned Deezer dataset with this in mind, we used the Million Songs dataset (MSD) [6] to lift the VA representation of songs to the 3rd dimension: tempo. 
+<p>To build on the aforementioned Deezer dataset with this in mind, we used the Million Songs dataset (MSD) [5x] to lift the VA representation of songs to the 3rd dimension: tempo. 
 Since the Deezer dataset was made from songs in the MSD, one of the dataset's fields was the MSD track ID. Using this field, songs in the Deezer set could be looked up in the MSD, where 
 those songs have a variety of high-level feature information, one of such features being tempo. By appending this new column to the Deezer dataset, we can arrive at a 3D visualization of what 
 we can now call VAT space (valence, arousal, tempo).</p>
@@ -205,7 +205,7 @@ steps with the quarter beat of songs due to the importance and gravity of such b
 ### K nearest neighbors for top recommendations 
 
 <p>To take advantage of the VA space representation of the song dataset and HRV, we exploit the fact that listening 
-to music with the same mood as a user is feeling has been shown to help the user feel better [9]. The top K songs are recommended to a user 
+to music with the same mood as a user is feeling has been shown to help the user feel better [11]. The top K songs are recommended to a user 
 based on the Euclidean distance (norm 2) between a user's estimated mood in VA space and the K songs with the least distance to that mood. 
 The K-nearest neighbors (KNN) algorithm is used to find these recommended songs.</p>
 
@@ -254,7 +254,7 @@ smartphone pulls this value from the website at the tap of a button. In the futu
 to the smartphone. This design choice was made for ease of initial implementation.</p> 
 
 <p>To put the trained CNN onto the phone to be able to readily classify new accelerometer data, the TensorFlow Lite library was used. More precisely, the network was 
-created and trained using the Keras Python library and was then converted to a .tflite model using a very handy .h5 to .tflite conversion script [#].</p>
+created and trained using the Keras Python library and was then converted to a .tflite model using a very handy .h5 to .tflite conversion script [19].</p>
 
 <p>The dataset is included as a resource in the app and is cached at initialization of the program.</p>
 

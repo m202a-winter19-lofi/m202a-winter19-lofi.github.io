@@ -3,6 +3,14 @@ layout: page
 title: "References"
 ---
 
+[3] Delbouys et. al. Deezer mood detection dataset. https://github.com/deezer/deezer_mood_detection_dataset accessed February 2019.
+
+[5] Kwapisz et. al. Activity prediction dataset. http://www.cis.fordham.edu/wisdm/dataset.php accessed February 2019. 
+
+[7] Example: Sequence classification with 1D convolutions. https://keras.io/getting-started/sequential-model-guide/ accessed February 2019. 
+
+[8] Netron. https://github.com/lutzroeder/netron accessed February 2019.
+
 [10] Synchronized personalized music audio-playlists to improve adherence to physical activity among patients participating in a structured exercise program: a proof-of-principle feasibility study. Sports Med Open. 2015
 
 [11] Promoting patient uptake and adherence in cardiac rehabilitation. Cochrane Database Syst Rev. 2010
@@ -20,3 +28,5 @@ title: "References"
 [17] Fred Shaffer and J.P. Ginsbergy. “An Overview of Heart Rate Variability Metrics and Norms”. 2017.
 
 [18] J. Rottenberg, R. D. Ray, and J. J. Gross, “Emotion elicitation using films.” 2007.
+
+[19] Amir Abdi. Keras to TensorFlow. https://github.com/amir-abdi/keras_to_tensorflow accessed February 2019. 
