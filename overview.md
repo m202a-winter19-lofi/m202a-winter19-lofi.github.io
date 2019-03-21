@@ -17,6 +17,7 @@ Welcome! Below is a quick overview of some essentials of the project. To begin t
 * <a href="https://github.com/m202a-winter19-lofi/lofi/blob/master/app/build/outputs/apk/debug/app-debug.apk">App APK</a> (Min API level is 21 = 5.0, Lollipop)
 * <a href="https://github.com/m202a-winter19-lofi/hexiwear_mood_estimation">Hexiwear, PPG signal processing code</a> (PPG data to SDNN and LF/HF + Bluetooth transmission)
 * <a href="https://github.com/m202a-winter19-lofi/raspberry_pi_zero_w">Code on the Raspberry Pi Zero W</a> (includes installed packages list)
+* <a href="https://github.com/m202a-winter19-lofi/m202a-winter19-lofi.github.io/blob/master/misc/EE%20M202A%20Final%20Presentation.pptx">Final presentation slides</a>
 
 
 
